@@ -1,7 +1,15 @@
-require("dotenv").config();
+require("dotenv").config(); //Archivos de entorno
 
 const express = require("express");
 const app = express();
+
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));  //Ruta archivos estáticos
+
+//Motor plantillas
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, "src/views"));
 
 const mainRouter = require("./src/routes/main.router");  //Llama al módulo de rutas
 app.use(mainRouter);

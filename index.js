@@ -9,8 +9,9 @@ app.use(express.static(path.join(__dirname, "public")));  //Ruta archivos estát
 
 //Motor plantillas
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, "src/views"));
+app.set('views', path.join(__dirname, "src/views"));  //Ruta vistas
 
+//Rutas de las páginas
 const mainRouter = require("./src/routes/main.router");  //Llama al módulo de rutas
 app.use(mainRouter);
 app.use(require('./src/routes/productos.router'));
